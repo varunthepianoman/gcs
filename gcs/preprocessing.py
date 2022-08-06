@@ -88,7 +88,8 @@ def removeRedundancies(gcs, s, t, tol=1e-4, verbose=False):
 
         # Check if edge e = (u,v) is redundant. 
         result = Solve(prog)
-        preprocessing_times['linear_programs'] += result.get_solver_details().optimizer_time
+#         print(result.get_solver_details().status)
+#         preprocessing_times['linear_programs'] += result.get_solver_details().optimizer_time
         if not result.is_success():
             redundant_edges.append(e)
 
