@@ -27,19 +27,19 @@ directives:
     child: wsg::body
 
 # Add shelves
-# - add_model:
-#     name: shelves
-#     file: package://gcs/models/shelves/shelves.sdf
-#
-# - add_frame:
-#     name: shelf_origin
-#     X_PF:
-#       base_frame: world
-#       translation: [0.85, 0, 0.4]
-#
-# - add_weld:
-#     parent: shelf_origin
-#     child: shelves::shelves_body
+- add_model:
+    name: shelves
+    file: package://gcs/models/shelves/shelves.sdf
+
+- add_frame:
+    name: shelf_origin
+    X_PF:
+      base_frame: world
+      translation: [0.85, 0, 0.4]
+
+- add_weld:
+    parent: shelf_origin
+    child: shelves::shelves_body
 
 # Add Bins
 - add_model:
@@ -50,7 +50,7 @@ directives:
     name: bin_originR
     X_PF:
       base_frame: world
-      translation: [0.4, -0.3, 0]
+      translation: [0, -0.6, 0]
       rotation: !Rpy { deg: [0.0, 0.0, 90.0 ]}
 
 - add_weld:
@@ -65,7 +65,7 @@ directives:
     name: bin_originL
     X_PF:
       base_frame: world
-      translation: [0.4, 0.3, 0]
+      translation: [0, 0.6, 0]
       rotation: !Rpy { deg: [0.0, 0.0, 90.0 ]}
 
 - add_weld:
