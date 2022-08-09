@@ -36,7 +36,7 @@ def ForwardKinematics(q_list):
     directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
-    [iiwa, wsg, shelf, binR, binL, table] =  models
+    [iiwa, wsg, binR, binL, table] =  models
 
     plant.Finalize()
 
@@ -61,7 +61,7 @@ def InverseKinematics(q0, translation, rpy):
     directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
-    [iiwa, wsg, shelf, binR, binL, table] =  models
+    [iiwa, wsg, binR, binL, table] =  models
 
     plant.Finalize()
 
@@ -181,7 +181,7 @@ def visualize_trajectory(meshcat, traj_list, show_line = False, iiwa_ghosts = []
     directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
-    [iiwa, wsg, shelf, binR, binL, table] =  models
+    [iiwa, wsg, binR, binL, table] =  models
     
     #add clones versions of the iiwa
     if len(iiwa_ghosts):
