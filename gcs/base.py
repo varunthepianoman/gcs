@@ -97,8 +97,6 @@ class BaseGCS:
         if edges is None:
             edges = self.findStartGoalEdges(source, target)
             
-        print('edges', edges)
-
         if not (len(edges[0]) > 0):
             raise ValueError('Source vertex is not connected.')
         if not (len(edges[1]) > 0):
