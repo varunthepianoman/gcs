@@ -2,10 +2,10 @@
 # coding: utf-8
 
 # In[1]:
+from IPython import get_ipython
 
-
-get_ipython().run_line_magic('load_ext', 'autoreload')
-get_ipython().run_line_magic('autoreload', '2')
+# get_ipython.run_line_magic('load_ext', 'autoreload')
+# get_ipython().run_line_magic('autoreload', '2')
 import os
 import time
 import pickle
@@ -80,7 +80,7 @@ meshcat_cpp = MeshcatVisualizerCpp.AddToBuilder(builder, scene_graph, meshcat, m
 diagram = builder.Build()
 
 context = diagram.CreateDefaultContext()
-#plant_context = plant.GetMyContextFromRoot(context)
+plant_context_non_mutable = plant.GetMyContextFromRoot(context)
 plant_context = plant.GetMyMutableContextFromRoot(context)
 q0 =[0, 0.3, 0, -1.8, 0, 1, 1.57]
 plant.SetPositions(plant_context, q0)
@@ -89,10 +89,18 @@ diagram.Publish(context)
 
 # In[7]:
 
+# positions = plant.GetPositions(plant_context_non_mutable, 1)
+# print(positions)
+# collision_geometries = plant.GetCollisionGeometriesForBody(binL)
+# print(collision_geometries)
+sg_context = diagram.GetMutableSubsystemContext(scene_graph, context)
+query_object = scene_graph.get_query_output_port().EvalAbstract(sg_context).get_value()
+# print(binL.child_frame_name)
+binL_frame = plant.get_frame(binL.child_frame_name)
+# print(binL_frame)
+bin_pose = query_object.GetPoseInWorld(binL_frame)
 
-pass
-
-
+assert False
 # # Generate Iris Regions
 # ### via manual seeds
 
