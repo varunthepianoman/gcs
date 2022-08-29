@@ -33,7 +33,7 @@ def ForwardKinematics(q_list):
     parser = Parser(plant)
     parser.package_map().Add("gcs", GcsDir())
 
-    directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
+    directives_file = FindModelFile("models/varun_new_yaml.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
     [iiwa, wsg, binR, binL, table] =  models
@@ -58,7 +58,7 @@ def InverseKinematics(q0, translation, rpy):
     parser = Parser(plant)
     parser.package_map().Add("gcs", GcsDir())
 
-    directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
+    directives_file = FindModelFile("models/varun_new_yaml.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
     [iiwa, wsg, binR, binL, table] =  models
@@ -178,7 +178,7 @@ def visualize_trajectory(meshcat, traj_list, show_line = False, iiwa_ghosts = []
     parser = Parser(plant, scene_graph)
     parser.package_map().Add("gcs", GcsDir())
 
-    directives_file = FindModelFile("models/iiwa14_spheres_collision_welded_gripper.yaml")
+    directives_file = FindModelFile("models/varun_new_yaml.yaml")
     directives = LoadModelDirectives(directives_file)
     models = ProcessModelDirectives(directives, plant, parser)
     [iiwa, wsg, binR, binL, table] =  models
