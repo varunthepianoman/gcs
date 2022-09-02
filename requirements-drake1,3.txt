@@ -1,4 +1,5 @@
-drake # drake 1.5 ok
+drake==1.3.0
+lxml
 matplotlib
 networkx
 notebook
